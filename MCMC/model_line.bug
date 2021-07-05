@@ -1,0 +1,20 @@
+model{
+
+    #The likelihood:
+
+    for (i in 1:length(x)){
+        f[i] <- b0 + b1 * x[i]
+        
+        y[i] ~ dnorm(f[i],sigma)
+ 
+    } 
+
+
+    # Priors for  A, B, x0, w
+
+    b0 ~ dunif(-5,5)
+    b1 ~ dunif(0,2)
+    sigma ~ dunif(0,10)
+
+      
+}
